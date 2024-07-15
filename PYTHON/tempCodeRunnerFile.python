@@ -1,0 +1,47 @@
+# Define questions and answers
+questions = [
+    "What is the capital of France?",
+    "Who wrote 'To Kill a Mockingbird'?",
+    "What is the chemical symbol for water?",
+    "Which planet is known as the Red Planet?",
+    "What is the largest mammal in the world?"
+]
+
+options = [
+    ["A. London", "B. Paris", "C. Rome", "D. Madrid"],
+    ["A. J.K. Rowling", "B. Harper Lee", "C. George Orwell", "D. William Shakespeare"],
+    ["A. Wa", "B. H2O", "C. O2", "D. CO2"],
+    ["A. Venus", "B. Mars", "C. Jupiter", "D. Saturn"],
+    ["A. Elephant", "B. Blue whale", "C. Giraffe", "D. Hippopotamus"]
+]
+
+answers = ['B', 'B', 'B', 'B', 'B']
+
+# Function to ask questions
+def ask_question(question, options):
+    print(question)
+    for option in options:
+        print(option)
+    user_answer = input("Your answer: ").upper()
+    return user_answer
+
+# Main game loop
+def play_game():
+    total_prize = 0
+    for i in range(len(questions)):
+        print(f"\nQuestion {i+1}:")
+        user_answer = ask_question(questions[i], options[i])
+        if user_answer == answers[i]:
+            print("Correct answer!")
+            total_prize += 100000
+            print("You have won ₹" + str(total_prize))
+        else:
+            print("Wrong answer!")
+            print("Game Over!")
+            break
+    else:
+        print("Congratulations! You've won ₹1,000,000!")
+
+# Start the game
+if __name__ == "__main__":
+    play_game()
